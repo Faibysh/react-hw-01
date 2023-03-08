@@ -23,14 +23,7 @@ ul {
   display: flex;
 }
 
-li {
-  border-right: 1px solid #ccc;
-  padding-right: 15px;
-}
 
-li:last-child {
-  border: none;
-}
 
 .stat-list {
   display: flex;
@@ -42,10 +35,17 @@ li:last-child {
   align-items: center;
 }
 
-.item {
+.stat-list li {
+  border-right: 1px solid #ccc;
+  padding-right: 15px;
   display: flex;
   flex-direction: column;
 }
+
+.stat-list li:last-child {
+  border: none;
+}
+
 
 .label {
   font-size: 17px;
