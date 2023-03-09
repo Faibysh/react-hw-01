@@ -2,7 +2,7 @@ import styles from './friendListItem.module.css';
 
 const FriendListItem = ({ avatar, isOnline, name }) => {
   return (
-    <li>
+    <li className={styles['friend-list--item']}>
       <span className={isOnline ? styles.online : styles.offline}>
         {isOnline}
       </span>
