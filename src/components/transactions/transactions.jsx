@@ -1,41 +1,32 @@
 import React from 'react';
-// import styles from './friends.module.css';
-// import PropTypes from 'prop-types';
+import styles from './transactions.module.css';
+import PropTypes from 'prop-types';
 
-
-
-const TransactionHistory = (
-  {
-items 
-  }) => {
+const TransactionHistory = ({ items }) => {
   return (
-<table className="transaction-history">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Amount</th>
-      <th>Currency</th>
-    </tr>
-  </thead>
+    <table className={styles['transaction-history']}>
+      <thead className={styles.header}>
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Currency</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <tr>
-      <td>Invoice</td>
-      <td>125</td>
-      <td>USD</td>
-    </tr>
-    <tr>
-      <td>Withdrawal</td>
-      <td>85</td>
-      <td>USD</td>
-    </tr>
-  </tbody>
-</table>
-)
-}
+      <tbody className={styles.body}>
+        {items.map(item => (
+          <tr key={item.id}>
+            <td>{item.type}</td>
+            <td>{item.amount}</td>
+            <td>{item.currency}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
 
-
-
-
-
-export default TransactionHistory
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object),
+};
+export default TransactionHistory;
